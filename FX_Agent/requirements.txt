@@ -1,0 +1,11 @@
+pandas
+numpy
+yfinance
+prophet
+groq
+feedparser
+jinja2
+pytz
+matplotlib
+python-dotenv
+requests

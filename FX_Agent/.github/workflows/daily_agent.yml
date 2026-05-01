@@ -1,0 +1,46 @@
+name: FX_Agent Automation Engine
+
+on:
+  schedule:
+    - cron: '0 1 * * *' # Fires autonomously at 08:00 AM Indochina Time (GMT+7)
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout secure repository
+      uses: actions/checkout@v3
+
+    - name: Scaffold Python Stack
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Provision Module Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        cd FX_Agent
+        pip install -r requirements.txt
+
+    - name: Trigger Primary Entrypoint & Orchestration
+      env:
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      run: |
+        cd FX_Agent
+        python main.py
+
+    - name: MLOps Data GitOps Persistence
+      run: |
+        cd FX_Agent
+        git config --global user.name "FX_Agent Autonomous Bot"
+        git config --global user.email "bot@fxagent.io"
+        git add history/ logs/ forecast_chart.png
+        git commit -m "Auto-update daily ML telemetry logs [skip ci]" || echo "No tracked changes detected."
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,38 @@
+FX_Agent Local Operation Guide
+==============================
+
+Step 1: Initialize the Environment
+1. Open your Command Prompt (or Terminal)
+2. Navigate to the agent's directory:
+   cd C:\Users\tqdat\OneDrive\Documents\fx_hedging_project\FX_Agent
+3. Install the Required Python Libraries:
+   pip install -r requirements.txt
+
+Step 2: Acquire Security Credentials
+1. GROQ_API_KEY: Go to console.groq.com, create an account, and generate a free API Key. This connects the agent to the Llama-3 AI.
+2. EMAIL_PASSWORD: Because Google blocks standard passwords for scripts, you must generate an App Password:
+   - Go to your Google Account Settings -> Security.
+   - Turn on 2-Step Verification (if it isn't already).
+   - Go to App Passwords.
+   - Generate a password for "Mail" / "Windows Computer". Google will give you a 16-character password (e.g., abcd efgh ijkl mnop). This is your EMAIL_PASSWORD.
+
+Step 3: Create the Environment (.env) File
+1. Inside the FX_Agent folder, create a new text file and name it exactly: .env
+2. Open it and paste your keys like this (no quotes needed):
+
+GROQ_API_KEY=your_actual_groq_api_key_here
+EMAIL_PASSWORD=your_16_character_gmail_app_password
+
+Step 4: Fire Up the Orchestrator!
+In your terminal (still inside the FX_Agent folder), run:
+python main.py
+
+Step 5: Execution Sequence (What Happens Next)
+When you press enter, the agent will autonomously:
+1. Download 2 years of EURVND=X historical data cleanly.
+2. Scrape the latest top 15 Vietnamese macro-financial articles safely.
+3. Access Groq to process the news to generate actionable JSON insights.
+4. Calculate Matrix Inversions via Prophet to predict the next 30 days.
+5. Render forecast_chart.png locally on your computer.
+6. Package everything into a styled HTML layout.
+7. Connect to smtp.gmail.com via SSL and dispatch the email to tqdat1997@gmail.com.

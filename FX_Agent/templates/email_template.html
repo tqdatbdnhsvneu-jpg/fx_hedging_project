@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { background-color: #ffffff; padding: 30px; border-radius: 8px; max-width: 700px; margin: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .metric-box { background-color: #ecf0f1; padding: 15px; border-radius: 5px; margin: 20px 0; font-size: 18px; }
+        .signal-hedgenow { color: #e74c3c; font-weight: bold; padding: 3px 8px; border: 1px solid #e74c3c; border-radius: 4px; }
+        .signal-hold { color: #27ae60; font-weight: bold; padding: 3px 8px; border: 1px solid #27ae60; border-radius: 4px; }
+        .chart { text-align: center; margin: 30px 0; }
+        .chart img { max-width: 100%; height: auto; border: 1px solid #bdc3c7; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FX_Agent: Advanced Treasury Briefing</h1>
+        
+        <div class="metric-box">
+            <strong>Current EUR/VND Spot Rate:</strong> ₫{{ "%0.2f" | format(current_rate|float) }}<br/>
+            <strong>Prophet 30-Day Predictive Signal:</strong> 
+            <span class="{% if prophet_signal == 'HEDGE NOW' %}signal-hedgenow{% else %}signal-hold{% endif %}">
+                {{ prophet_signal }}
+            </span>
+        </div>
+
+        <div class="chart">
+            <h3>Machine Learning Horizon Trajectory</h3>
+            <img src="cid:forecast_chart" alt="FX Forecast Chart">
+        </div>
+
+        <h3>Macroeconomic Actionable Insights</h3>
+        <ul>
+            {% for item in ai_insights %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Auto-ML Engine: New Feature Submissions</h3>
+        <table>
+            <tr>
+                <th>Extracted Feature Target</th>
+                <th>Evaluation Metric</th>
+                <th>Hypothesis Reasoning</th>
+            </tr>
+            {% for feature in ai_feature_suggestions %}
+            <tr>
+                <td>{{ feature.feature_name }}</td>
+                <td>{{ feature.value }}</td>
+                <td>{{ feature.reason }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

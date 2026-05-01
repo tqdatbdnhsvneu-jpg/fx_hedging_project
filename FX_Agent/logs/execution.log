@@ -1,0 +1,42 @@
+2026-04-07 22:38:22,365 - INFO - Initializing the FX_Agent Orchestration Frame...
+2026-04-07 22:38:23,044 - INFO - Target Acquired. Spot EURVND: 30440.0
+2026-04-07 22:38:25,138 - INFO - Extracted Vietnamese RSS News Vector.
+2026-04-07 22:38:25,141 - ERROR - FATAL PIPELINE INTERRUPTION: GROQ_API_KEY environment variable is not set.
+Traceback (most recent call last):
+  File "C:\Users\tqdat\OneDrive\Documents\fx_hedging_project\FX_Agent\main.py", line 49, in main
+    agent = MarketInsightAgent()
+  File "C:\Users\tqdat\OneDrive\Documents\fx_hedging_project\FX_Agent\src\ai_insight_generator.py", line 11, in __init__
+    raise ValueError("GROQ_API_KEY environment variable is not set.")
+ValueError: GROQ_API_KEY environment variable is not set.
+2026-04-07 22:42:35,340 - INFO - Initializing the FX_Agent Orchestration Frame...
+2026-04-07 22:42:36,189 - INFO - Target Acquired. Spot EURVND: 30440.0
+2026-04-07 22:42:37,712 - INFO - Extracted Vietnamese RSS News Vector.
+2026-04-07 22:42:38,089 - ERROR - FATAL PIPELINE INTERRUPTION: [Errno 2] No such file or directory: 'prompts\\financial_advisor_prompt.txt'
+Traceback (most recent call last):
+  File "C:\Users\tqdat\OneDrive\Documents\fx_hedging_project\FX_Agent\main.py", line 49, in main
+    agent = MarketInsightAgent()
+  File "C:\Users\tqdat\OneDrive\Documents\fx_hedging_project\FX_Agent\src\ai_insight_generator.py", line 15, in __init__
+    with open(os.path.join("prompts", "financial_advisor_prompt.txt"), "r", encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'prompts\\financial_advisor_prompt.txt'
+2026-04-07 22:45:02,430 - INFO - Initializing the FX_Agent Orchestration Frame...
+2026-04-07 22:45:03,117 - INFO - Target Acquired. Spot EURVND: 30433.0
+2026-04-07 22:45:05,281 - INFO - Extracted Vietnamese RSS News Vector.
+2026-04-07 22:45:06,196 - INFO - LLM Llama-3-70b-8192 completed Reasoning pass.
+2026-04-07 22:45:16,848 - INFO - Prophet Horizon finalized. Alpha Signal Generated: HOLD
+2026-04-07 22:45:16,866 - INFO - Written structural telemetry to GitOps tracking (performance_log.csv).
+2026-04-07 22:45:20,340 - INFO - Encrypted email framework distributed securely via SMTP. Full run verified.
+2026-04-07 22:50:08,567 - INFO - Initializing the FX_Agent Orchestration Frame...
+2026-04-07 22:50:09,321 - INFO - Target Acquired. Spot EURVND: 30429.0
+2026-04-07 22:50:12,637 - INFO - Extracted Vietnamese RSS News Vector.
+2026-04-07 22:50:16,534 - INFO - LLM Llama-3-70b-8192 completed Reasoning pass.
+2026-04-07 22:50:21,441 - INFO - Prophet Horizon finalized. Alpha Signal Generated: HOLD
+2026-04-07 22:50:21,459 - INFO - Written structural telemetry to GitOps tracking (performance_log.csv).
+2026-04-07 22:50:25,062 - INFO - Encrypted email framework distributed securely via SMTP. Full run verified.
+2026-04-07 22:52:59,088 - INFO - Initializing the FX_Agent Orchestration Frame...
+2026-04-07 22:52:59,753 - INFO - Target Acquired. Spot EURVND: 30432.0
+2026-04-07 22:53:04,638 - INFO - Extracted Vietnamese RSS News Vector.
+2026-04-07 22:53:08,316 - INFO - LLM Llama-3-70b-8192 completed Reasoning pass.
+2026-04-07 22:53:13,676 - INFO - Prophet Horizon finalized. Alpha Signal Generated: HOLD
+2026-04-07 22:53:13,711 - INFO - Written structural telemetry to GitOps tracking (performance_log.csv).
+2026-04-07 22:53:18,892 - INFO - Encrypted email framework distributed securely via SMTP. Full run verified.
